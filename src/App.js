@@ -1,10 +1,9 @@
-import './App.css';
 import Navbar from './components/Navbar';
 import AccountDetails from './components/AccountDetails';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
       <AccountDetails />
     </div>

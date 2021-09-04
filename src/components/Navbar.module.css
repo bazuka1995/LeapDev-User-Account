@@ -27,4 +27,6 @@
 .headerButton:hover,
 .headerButton:active {
   box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.50);
+  background-color: #0e5fe3;
+  border: 1px solid #0e5fe3
 }
