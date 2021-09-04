@@ -119,3 +119,7 @@ button:disabled:active {
   background-color: white;
   border: 1px solid #1D69E5
 }
+
+span {
+  color: red;
+}
