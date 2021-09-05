@@ -108,16 +108,20 @@ button:disabled:active {
   align-items: center;
 }
 
-.resume-button {
+.avatar-button {
   background-color: white;
-  color: #1D69E5;
-  border-color: #1D69E5;
+  color: #1d69e5;
+  border-color: #1d69e5;
+  padding: 0.5rem;
+  border: 1px solid #7c8ba3;
+  border-radius: 4px;
 }
 
-.resume-button:hover {
-  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.50);
+.avatar-button:hover {
+  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.5);
   background-color: white;
-  border: 1px solid #1D69E5
+  border: 1px solid #1d69e5;
+  cursor: pointer;
 }
 
 span {

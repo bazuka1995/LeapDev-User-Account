@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import ReactRoundedImage from "react-rounded-image";
 import AccountImg from "../Assets/myyaccountpic.jpg";
 import useInput from "../hooks/use-input";
@@ -12,6 +14,8 @@ const notRequired = (value) => true;
 const isNumber = (value) => value.match(/\d/);
 
 const AccountDetails = (props) => {
+  const [image, setImage] = useState({ preview: "", raw: "" });
+
   const {
     value: fName,
     isValid: validFname,
@@ -74,19 +78,26 @@ const AccountDetails = (props) => {
     inputUnfocusHandler: bdayUnfocusHandler,
   } = useInput(isNotEmpty);
 
-  let formIsValid = false;
+  const handleChange = (e) => {
+    if (e.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0],
+      });
+    }
+  };
 
-  if (
-    validFname &&
-    validLname &&
-    validEmail &&
-    validPhone &&
-    validPost &&
-    validRate &&
-    validBday
-  ) {
-    formIsValid = true;
-  }
+  const formIsValid = () => {
+    return (
+      validFname &&
+      validLname &&
+      validEmail &&
+      validPhone &&
+      validPost &&
+      validRate &&
+      validBday
+    );
+  };
 
   const firstNameClasses = fnameError ? "form-control invalid" : "form-control";
 
@@ -106,16 +117,32 @@ const AccountDetails = (props) => {
     <div className="account-details">
       <div className="form-header">
         <div className="control-group">
-          <ReactRoundedImage
-            image={AccountImg}
-            roundedSize="0"
-            imageWidth="110"
-            imageHeight="110"
-          />
+          {image.preview ? (
+            <ReactRoundedImage
+              image={image.preview}
+              roundedSize="0"
+              imageWidth="110"
+              imageHeight="110"
+            />
+          ) : (
+            <ReactRoundedImage
+              image={AccountImg}
+              roundedSize="0"
+              imageWidth="110"
+              imageHeight="110"
+            />
+          )}
           <h3>Dwayne Johnson</h3>
         </div>
-
-        <button className="resume-button">Upload Resume</button>
+        <label htmlFor="upload-button">
+          <h5 className="avatar-button">Update Avatar</h5>
+        </label>
+        <input
+          type="file"
+          id="upload-button"
+          style={{ display: "none" }}
+          onChange={handleChange}
+        />
       </div>
 
       <form className="form" id="my-account">
