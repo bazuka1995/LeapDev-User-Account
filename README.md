@@ -3,7 +3,6 @@
 A simple react app where a user can change his/her account details. This app was made for the LeapDev technical test.
 
 Intructions
-
 1. Download the code or clone this repository and open it in your favourite IDE (e.g. VSCode)
 2. Open terminal in the downloaded folder/cloned repository and run:
    npm i

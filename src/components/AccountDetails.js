@@ -145,7 +145,7 @@ const AccountDetails = (props) => {
           </div>
         </div>
         <label htmlFor="upload-button">
-          <h3 className="avatar-button">Update Avatar</h3>
+          <h4 className="avatar-button">Update Avatar</h4>
         </label>
         <input
           type="file"
