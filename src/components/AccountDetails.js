@@ -102,19 +102,6 @@ const AccountDetails = (props) => {
 
   const bdayClasses = bdayError ? "form-control invalid" : "form-control";
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    if (!formIsValid) {
-      return;
-    }
-
-    let select = document.getElementById("state");
-    let state = select.options[select.selectedIndex].value;
-
-    console.log(fName, lName, email, phone, post, state, company, abn, rate, bday);
-  };
-
   return (
     <div className="account-details">
       <div className="form-header">
@@ -131,7 +118,7 @@ const AccountDetails = (props) => {
         <button className="resume-button">Upload Resume</button>
       </div>
 
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form" id="my-account">
         <div className="control-group">
           <div className={firstNameClasses}>
             <label htmlFor="name">
@@ -297,7 +284,6 @@ const AccountDetails = (props) => {
             )}
           </div>
         </div>
-        
       </form>
     </div>
   );
