@@ -10,7 +10,7 @@ const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 const isPostCode = (value) => value.trim().length === 4;
 const isPhone = (value) => value.trim().length === 10;
-const notRequired = (value) => true;
+const notRequired = () => true;
 const isNumber = (value) => value.match(/\d/);
 
 const AccountDetails = (props) => {
@@ -132,10 +132,20 @@ const AccountDetails = (props) => {
               imageHeight="110"
             />
           )}
-          <h3>Dwayne Johnson</h3>
+          <div>
+            <h3>Dwayne Johnson</h3>
+            <a
+              href="https://drive.google.com/file/d/12sy9kUcwirb3ZcR4XuNqhQ49qR8amqtN/view?usp=sharing"
+              className="view-resume"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+            </a>
+          </div>
         </div>
         <label htmlFor="upload-button">
-          <h5 className="avatar-button">Update Avatar</h5>
+          <h3 className="avatar-button">Update Avatar</h3>
         </label>
         <input
           type="file"

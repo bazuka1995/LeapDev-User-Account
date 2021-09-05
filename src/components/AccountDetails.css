@@ -124,6 +124,11 @@ button:disabled:active {
   cursor: pointer;
 }
 
+.view-resume {
+  color: #0e5fe3;
+  text-decoration: none;
+}
+
 span {
   color: red;
 }
