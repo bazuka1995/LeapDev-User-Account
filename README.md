@@ -11,4 +11,4 @@ Intructions
 3. This should run the code and open it in a new browser window.
 4. If a browser window doesn't open automaticaly, navigate to:
    http://localhost:3000/
-5. Port 300 0 might be different on you computer and the correct port should be displayed after running npm start.
+5. Port 3000 might be different on you computer and the correct port should be displayed after running npm start.
