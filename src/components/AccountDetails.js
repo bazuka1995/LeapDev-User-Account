@@ -144,6 +144,7 @@ const AccountDetails = (props) => {
               value={fName}
               onChange={fnameChangedHandler}
               onBlur={fnameUnfocusHandler}
+              disabled={props.disabled}
             />
             {fnameError && (
               <p className="error-text">Please enter your first name</p>
@@ -161,6 +162,7 @@ const AccountDetails = (props) => {
               value={lName}
               onChange={lnameChangedHandler}
               onBlur={lnameUnfocusHandler}
+              disabled={props.disabled}
             />
             {lnameError && (
               <p className="error-text">Please enter your last name</p>
@@ -178,6 +180,7 @@ const AccountDetails = (props) => {
               value={email}
               onChange={emailChangedHandler}
               onBlur={emailUnfocusHandler}
+              disabled={props.disabled}
             />
             {emailError && (
               <p className="error-text">Please enter a valid email</p>
@@ -195,6 +198,7 @@ const AccountDetails = (props) => {
               value={phone}
               onChange={phoneChangedHandler}
               onBlur={phoneUnfocusHandler}
+              disabled={props.disabled}
             />
             {phoneError && (
               <p className="error-text">Please enter a valid phone number</p>
@@ -212,6 +216,7 @@ const AccountDetails = (props) => {
               value={post}
               onChange={postChangedHandler}
               onBlur={postUnfocusHandler}
+              disabled={props.disabled}
             />
             {postError && (
               <p className="error-text">Please enter a valid postcode</p>
@@ -222,7 +227,7 @@ const AccountDetails = (props) => {
             <label htmlFor="state">
               State<span>*</span>
             </label>
-            <select required id="state" name="state">
+            <select required id="state" name="state" disabled={props.disabled}>
               <option value="NSW">NSW</option>
               <option value="ACT">ACT</option>
               <option value="Queensland">Queensland</option>
@@ -241,6 +246,7 @@ const AccountDetails = (props) => {
               id="company"
               value={company}
               onChange={companyChangedHandler}
+              disabled={props.disabled}
             />
           </div>
 
@@ -251,6 +257,7 @@ const AccountDetails = (props) => {
               id="abn"
               value={abn}
               onChange={abnChangedHandler}
+              disabled={props.disabled}
             />
           </div>
 
@@ -265,6 +272,7 @@ const AccountDetails = (props) => {
               value={rate}
               onChange={rateChangedHandler}
               onBlur={rateUnfocusHandler}
+              disabled={props.disabled}
             />
             {rateError && (
               <p className="error-text">Please enter a valid hourly rate</p>
@@ -282,13 +290,14 @@ const AccountDetails = (props) => {
               value={bday}
               onChange={bdayChangedHandler}
               onBlur={bdayUnfocusHandler}
+              disabled={props.disabled}
             />
             {bdayError && (
               <p className="error-text">Please enter a valid date</p>
             )}
           </div>
         </div>
-        <button type="submit">Submit</button>
+        
       </form>
     </div>
   );

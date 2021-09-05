@@ -4,7 +4,7 @@ const Navbar = (props) => {
     return (
         <header className={classes.header}>
             <h1>My Account</h1>
-            <button onClick={props.click} className={classes.headerButton}>Edit</button>
+            <button onClick={props.handleInput} className={classes.headerButton}>{props.disabled ? 'Edit' : 'Save' }</button>
         </header>
     );
 }
