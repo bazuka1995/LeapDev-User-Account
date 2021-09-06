@@ -18,7 +18,7 @@ const AccountDetails = (props) => {
 
   const {
     value: fName,
-    isValid: validFname,
+    //isValid: validFname,
     hasError: fnameError,
     inputChangedHandler: fnameChangedHandler,
     inputUnfocusHandler: fnameUnfocusHandler,
@@ -26,7 +26,7 @@ const AccountDetails = (props) => {
 
   const {
     value: lName,
-    isValid: validLname,
+    //isValid: validLname,
     hasError: lnameError,
     inputChangedHandler: lnameChangedHandler,
     inputUnfocusHandler: lnameUnfocusHandler,
@@ -34,7 +34,7 @@ const AccountDetails = (props) => {
 
   const {
     value: email,
-    isValid: validEmail,
+    //isValid: validEmail,
     hasError: emailError,
     inputChangedHandler: emailChangedHandler,
     inputUnfocusHandler: emailUnfocusHandler,
@@ -42,7 +42,7 @@ const AccountDetails = (props) => {
 
   const {
     value: phone,
-    isValid: validPhone,
+    //isValid: validPhone,
     hasError: phoneError,
     inputChangedHandler: phoneChangedHandler,
     inputUnfocusHandler: phoneUnfocusHandler,
@@ -50,7 +50,7 @@ const AccountDetails = (props) => {
 
   const {
     value: post,
-    isValid: validPost,
+    //isValid: validPost,
     hasError: postError,
     inputChangedHandler: postChangedHandler,
     inputUnfocusHandler: postUnfocusHandler,
@@ -64,7 +64,7 @@ const AccountDetails = (props) => {
 
   const {
     value: rate,
-    isValid: validRate,
+    //isValid: validRate,
     hasError: rateError,
     inputChangedHandler: rateChangedHandler,
     inputUnfocusHandler: rateUnfocusHandler,
@@ -72,13 +72,13 @@ const AccountDetails = (props) => {
 
   const {
     value: bday,
-    isValid: validBday,
+    //isValid: validBday,
     hasError: bdayError,
     inputChangedHandler: bdayChangedHandler,
     inputUnfocusHandler: bdayUnfocusHandler,
   } = useInput(isNotEmpty);
 
-  const handleChange = (e) => {
+  const updateAvatar = (e) => {
     if (e.target.files.length) {
       setImage({
         preview: URL.createObjectURL(e.target.files[0]),
@@ -87,17 +87,14 @@ const AccountDetails = (props) => {
     }
   };
 
-  const formIsValid = () => {
-    return (
-      validFname &&
-      validLname &&
-      validEmail &&
-      validPhone &&
-      validPost &&
-      validRate &&
-      validBday
-    );
-  };
+  // let formIsValid =
+  //   validFname &&
+  //   validLname &&
+  //   validEmail &&
+  //   validPhone &&
+  //   validPost &&
+  //   validRate &&
+  //   validBday;
 
   const firstNameClasses = fnameError ? "form-control invalid" : "form-control";
 
@@ -151,7 +148,7 @@ const AccountDetails = (props) => {
           type="file"
           id="upload-button"
           style={{ display: "none" }}
-          onChange={handleChange}
+          onChange={updateAvatar}
         />
       </div>
 
