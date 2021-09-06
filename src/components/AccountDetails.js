@@ -8,10 +8,10 @@ import "./AccountDetails.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
-const isPostCode = (value) => value.trim().length === 4;
-const isPhone = (value) => value.trim().length === 10;
+const isPostCode = (value) => value.trim().length === 4 && !isNaN(value);
+const isPhone = (value) => value.trim().length === 10 && !isNaN(value);
 const notRequired = () => true;
-const isNumber = (value) => value.match(/\d/);
+const isNumber = (value) => !isNaN(value);
 
 const AccountDetails = (props) => {
   const [image, setImage] = useState({ preview: "", raw: "" });
