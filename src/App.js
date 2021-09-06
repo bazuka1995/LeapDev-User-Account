@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Navbar from './components/Navbar';
-import AccountDetails from './components/AccountDetails';
+import Navbar from "./components/Navbar";
+import AccountDetails from "./components/AccountDetails";
 
 function App() {
   const [disabled, setDisabled] = useState(true);
 
-  const handleInput = () => {
-    setDisabled(!disabled)
-  }
+  const handleDisabled = () => {
+    setDisabled(!disabled);
+  };
 
   return (
     <div className="app">
-      <Navbar handleInput={handleInput} disabled={disabled} />
-      <AccountDetails disabled={disabled} />
+      <Navbar />
+      <AccountDetails disabled={disabled} handleDisabled={handleDisabled} />
     </div>
   );
 }

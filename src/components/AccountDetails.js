@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { isMatch } from "date-fns";
+
+import "./AccountDetails.css";
 
 import ReactRoundedImage from "react-rounded-image";
 import AccountImg from "../Assets/myyaccountpic.jpg";
 import useInput from "../hooks/use-input";
-
-import "./AccountDetails.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -12,13 +13,14 @@ const isPostCode = (value) => value.trim().length === 4 && !isNaN(value);
 const isPhone = (value) => value.trim().length === 10 && !isNaN(value);
 const notRequired = () => true;
 const isNumber = (value) => !isNaN(value);
+const isDate = (value) => isMatch(value, "yyyy-MM-dd");
 
 const AccountDetails = (props) => {
   const [image, setImage] = useState({ preview: "", raw: "" });
 
   const {
     value: fName,
-    //isValid: validFname,
+    isValid: validFname,
     hasError: fnameError,
     inputChangedHandler: fnameChangedHandler,
     inputUnfocusHandler: fnameUnfocusHandler,
@@ -26,7 +28,7 @@ const AccountDetails = (props) => {
 
   const {
     value: lName,
-    //isValid: validLname,
+    isValid: validLname,
     hasError: lnameError,
     inputChangedHandler: lnameChangedHandler,
     inputUnfocusHandler: lnameUnfocusHandler,
@@ -34,7 +36,7 @@ const AccountDetails = (props) => {
 
   const {
     value: email,
-    //isValid: validEmail,
+    isValid: validEmail,
     hasError: emailError,
     inputChangedHandler: emailChangedHandler,
     inputUnfocusHandler: emailUnfocusHandler,
@@ -42,7 +44,7 @@ const AccountDetails = (props) => {
 
   const {
     value: phone,
-    //isValid: validPhone,
+    isValid: validPhone,
     hasError: phoneError,
     inputChangedHandler: phoneChangedHandler,
     inputUnfocusHandler: phoneUnfocusHandler,
@@ -50,7 +52,7 @@ const AccountDetails = (props) => {
 
   const {
     value: post,
-    //isValid: validPost,
+    isValid: validPost,
     hasError: postError,
     inputChangedHandler: postChangedHandler,
     inputUnfocusHandler: postUnfocusHandler,
@@ -64,7 +66,7 @@ const AccountDetails = (props) => {
 
   const {
     value: rate,
-    //isValid: validRate,
+    isValid: validRate,
     hasError: rateError,
     inputChangedHandler: rateChangedHandler,
     inputUnfocusHandler: rateUnfocusHandler,
@@ -72,11 +74,11 @@ const AccountDetails = (props) => {
 
   const {
     value: bday,
-    //isValid: validBday,
+    isValid: validBday,
     hasError: bdayError,
     inputChangedHandler: bdayChangedHandler,
     inputUnfocusHandler: bdayUnfocusHandler,
-  } = useInput(isNotEmpty);
+  } = useInput(isDate);
 
   const updateAvatar = (e) => {
     if (e.target.files.length) {
@@ -87,14 +89,21 @@ const AccountDetails = (props) => {
     }
   };
 
-  // let formIsValid =
-  //   validFname &&
-  //   validLname &&
-  //   validEmail &&
-  //   validPhone &&
-  //   validPost &&
-  //   validRate &&
-  //   validBday;
+  let formIsValid =
+    validFname &&
+    validLname &&
+    validEmail &&
+    validPhone &&
+    validPost &&
+    validRate &&
+    validBday;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formIsValid) {
+      props.handleDisabled();
+    }
+  };
 
   const firstNameClasses = fnameError ? "form-control invalid" : "form-control";
 
@@ -318,6 +327,20 @@ const AccountDetails = (props) => {
             )}
           </div>
         </div>
+        {props.disabled ? (
+          <button onClick={props.handleDisabled} className="header-button">
+            Edit
+          </button>
+        ) : (
+          <button
+            form="my-account"
+            onClick={handleSubmit}
+            type="submit"
+            className="header-button"
+          >
+            Save
+          </button>
+        )}
       </form>
     </div>
   );
