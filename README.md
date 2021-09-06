@@ -2,7 +2,11 @@
 
 A simple react app where a user can change his/her account details. This app was made for the LeapDev technical test.
 
-Intructions
+You can visit this project on:
+https://leapdev-my-account.herokuapp.com/
+
+Alternatively, you can download the code via the instructions below:
+
 1. Download the code or clone this repository and open it in your favourite IDE (e.g. VSCode)
 2. Open terminal in the downloaded folder/cloned repository and run:
    npm i
