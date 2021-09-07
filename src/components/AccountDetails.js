@@ -24,7 +24,7 @@ const AccountDetails = (props) => {
     hasError: fnameError,
     inputChangedHandler: fnameChangedHandler,
     inputUnfocusHandler: fnameUnfocusHandler,
-  } = useInput(isNotEmpty);
+  } = useInput(isNotEmpty, "Dwayne");
 
   const {
     value: lName,
@@ -32,7 +32,7 @@ const AccountDetails = (props) => {
     hasError: lnameError,
     inputChangedHandler: lnameChangedHandler,
     inputUnfocusHandler: lnameUnfocusHandler,
-  } = useInput(isNotEmpty);
+  } = useInput(isNotEmpty, "Johnson");
 
   const {
     value: email,
@@ -40,7 +40,7 @@ const AccountDetails = (props) => {
     hasError: emailError,
     inputChangedHandler: emailChangedHandler,
     inputUnfocusHandler: emailUnfocusHandler,
-  } = useInput(isEmail);
+  } = useInput(isEmail, "dwayne@therock.com");
 
   const {
     value: phone,
@@ -48,7 +48,7 @@ const AccountDetails = (props) => {
     hasError: phoneError,
     inputChangedHandler: phoneChangedHandler,
     inputUnfocusHandler: phoneUnfocusHandler,
-  } = useInput(isPhone);
+  } = useInput(isPhone, "0283726261");
 
   const {
     value: post,
@@ -56,13 +56,15 @@ const AccountDetails = (props) => {
     hasError: postError,
     inputChangedHandler: postChangedHandler,
     inputUnfocusHandler: postUnfocusHandler,
-  } = useInput(isPostCode);
+  } = useInput(isPostCode, "2000");
 
   const { value: company, inputChangedHandler: companyChangedHandler } =
-    useInput(notRequired);
+    useInput(notRequired, "Seven Bucks Productions");
 
-  const { value: abn, inputChangedHandler: abnChangedHandler } =
-    useInput(notRequired);
+  const { value: abn, inputChangedHandler: abnChangedHandler } = useInput(
+    notRequired,
+    "63644683563"
+  );
 
   const {
     value: rate,
@@ -70,7 +72,7 @@ const AccountDetails = (props) => {
     hasError: rateError,
     inputChangedHandler: rateChangedHandler,
     inputUnfocusHandler: rateUnfocusHandler,
-  } = useInput(isNumber);
+  } = useInput(isNumber, "590.00");
 
   const {
     value: bday,
@@ -78,7 +80,7 @@ const AccountDetails = (props) => {
     hasError: bdayError,
     inputChangedHandler: bdayChangedHandler,
     inputUnfocusHandler: bdayUnfocusHandler,
-  } = useInput(isDate);
+  } = useInput(isDate, "1972-05-1972");
 
   const updateAvatar = (e) => {
     if (e.target.files.length) {
@@ -139,7 +141,9 @@ const AccountDetails = (props) => {
             />
           )}
           <div>
-            <h3>Dwayne Johnson</h3>
+            <h3>
+              {fName} {lName}
+            </h3>
             <a
               href="https://drive.google.com/file/d/12sy9kUcwirb3ZcR4XuNqhQ49qR8amqtN/view?usp=sharing"
               className="view-resume"
@@ -164,13 +168,13 @@ const AccountDetails = (props) => {
       <form className="form" id="my-account">
         <div className="control-group">
           <div className={firstNameClasses}>
-            <label htmlFor="name">
+            <label htmlFor="fname">
               First Name<span>*</span>
             </label>
             <input
               required
               type="text"
-              id="name"
+              id="fname"
               value={fName}
               onChange={fnameChangedHandler}
               onBlur={fnameUnfocusHandler}
@@ -182,13 +186,13 @@ const AccountDetails = (props) => {
           </div>
 
           <div className={lastNameClasses}>
-            <label htmlFor="name">
+            <label htmlFor="lname">
               Last Name<span>*</span>
             </label>
             <input
               required
               type="text"
-              id="name"
+              id="lname"
               value={lName}
               onChange={lnameChangedHandler}
               onBlur={lnameUnfocusHandler}
